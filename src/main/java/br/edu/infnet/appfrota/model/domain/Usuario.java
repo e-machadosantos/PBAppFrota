@@ -2,6 +2,7 @@ package br.edu.infnet.appfrota.model.domain;
 
 public class Usuario {
 
+	private Integer id;
 	private String nome;
 	private String senha;
 	private String email;
@@ -30,7 +31,7 @@ public class Usuario {
 	public String toString() {
 
 		return String.format(
-				"O usu�rio %s tem as credenciais %s e senha %s, tem %d anos de idade e ganha sal�rio no valor de R$%.2f. � um usu�rio do tipo %s, atua no setor %s e tem %d caracter�sticas", 
+				"O usuário %s tem as credenciais %s e senha %s, tem %d anos de idade e ganha salário no valor de R$%.2f. É um usuário do tipo %s, atua no setor %s e tem %d características", 
 				nome,
 				email,
 				senha,
@@ -40,6 +41,14 @@ public class Usuario {
 				setor,
 				caracteristicas.length
 			);
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	public String getNome() {
