@@ -3,11 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<!-- 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"> -->
 	<meta charset="ISO-8859-1">
 	<title>AppFrota</title>
 </head>
 <body>
+
+	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 	
 	<div class="container">
 		<h2>Autenticação</h2>
