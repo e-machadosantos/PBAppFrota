@@ -6,7 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
 import br.edu.infnet.appfrota.model.domain.Empresa;
+import br.edu.infnet.appfrota.model.domain.Usuario;
 import br.edu.infnet.appfrota.model.service.EmpresaService;
 
 @Controller
@@ -35,11 +38,13 @@ public class EmpresaController {
 	}
 	
 	@PostMapping(value = "/empresa/incluir")
-	public String incluir(Empresa empresa) {
+	public String incluir(Empresa empresa, @SessionAttribute("usuario") Usuario usuario) {
+		
+		empresa.setUsuario(usuario);
 		
 		empresaService.incluir(empresa);
 		
-		msg = "A inclusão da empresa " + empresa.getRazaoSocial()+ " foin realizada com sucesso!!";
+		msg = "A inclusão da empresa " + empresa.getRazaoSocial() + " foin realizada com sucesso!!";
 		
 		return "redirect:/empresa/lista";
 	}	
@@ -47,10 +52,8 @@ public class EmpresaController {
 	@GetMapping(value = "/empresa/{id}/excluir")
 	public String excluir(@PathVariable Integer id) {
 		
-		Empresa empresa = empresaService.excluir(id);		
-		msg = "A exclusão da empresa " + empresa.getRazaoSocial() + " foi realizada com sucesso!!";
-		
-		msg = "A exclusão da empresa foi realizada com sucesso!!";
+		empresaService.excluir(id);		
+		msg = "A exclusão da empresa (" + id + ") foi realizada com sucesso!!";
 		
 		return "redirect:/empresa/lista";
 		

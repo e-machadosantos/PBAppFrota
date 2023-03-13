@@ -7,11 +7,14 @@ import java.io.IOException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.appfrota.model.domain.Empresa;
+import br.edu.infnet.appfrota.model.domain.Usuario;
 import br.edu.infnet.appfrota.model.service.EmpresaService;
 
+@Order(2)
 @Component
 public class EmpresaLoader implements ApplicationRunner {
 	
@@ -35,6 +38,9 @@ public class EmpresaLoader implements ApplicationRunner {
 					
 					campos = linha.split(";");
 					
+					Usuario usuario = new Usuario();
+					usuario.setId(1);
+					
 					Empresa empresa = new Empresa(
 							Integer.valueOf(campos[0]),
 							campos[1],
@@ -47,6 +53,7 @@ public class EmpresaLoader implements ApplicationRunner {
 							campos[8],
 							Integer.valueOf(campos[9])
 						);
+					empresa.setUsuario(usuario);
 
 					empresaService.incluir(empresa);
 					

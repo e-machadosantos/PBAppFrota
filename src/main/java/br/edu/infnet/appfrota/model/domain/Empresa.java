@@ -1,8 +1,20 @@
 package br.edu.infnet.appfrota.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
 import br.edu.infnet.appfrota.model.exceptions.EmpresaInvalidaException;
 
+@Entity
+@Table(name = "TEmpresa")
 public class Empresa {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private Integer codigo;
 	private String razaoSocial;
@@ -14,8 +26,16 @@ public class Empresa {
 	private String bairro;
 	private String cidade;
 	private Integer cep;
+	@ManyToOne
+	@JoinColumn(name = "idUsuario")
+	private Usuario usuario;
+	
+	public Empresa() {		
+	};
 	
 	public Empresa(Integer codigo, String razaoSocial, String nomeFantasia, String cnpj, String inscricaoEstadual, String endereco, String numero, String bairro, String cidade, Integer cep) throws EmpresaInvalidaException {
+		
+		this();
 		
 		if(codigo == null) {
 			throw new EmpresaInvalidaException("O campo Código deve ser preenchido!");
@@ -67,14 +87,6 @@ public class Empresa {
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.cep = cep;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public void setRazaoSocial(String razaoSocial) {
-		this.razaoSocial = razaoSocial;
 	}
 
 	public String toString() {
@@ -151,6 +163,52 @@ public class Empresa {
 		this.id = id;
 	}
 
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
 
-}
+	public void setRazaoSocial(String razaoSocial) {
+		this.razaoSocial = razaoSocial;
+	}
+
+	public void setNomeFantasia(String nomeFantasia) {
+		this.nomeFantasia = nomeFantasia;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
+	public void setInscricaoEstadual(String inscricaoEstadual) {
+		this.inscricaoEstadual = inscricaoEstadual;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public void setCep(Integer cep) {
+		this.cep = cep;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}	
 	
+}
