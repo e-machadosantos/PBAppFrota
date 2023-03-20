@@ -45,6 +45,7 @@
 						<th>Bairro</th>
 						<th>Ciadade</th>
 						<th>CEP</th>
+						<th>Usuário</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -62,6 +63,7 @@
 							<td>${e.bairro}</td>
 							<td>${e.cidade}</td>
 							<td>${e.cep}</td>
+							<td>${e.usuario.nome}</td>
 							<td><a href="/empresa/${e.id}/excluir">Excluir</a></td>
 						</tr>
 					</c:forEach>

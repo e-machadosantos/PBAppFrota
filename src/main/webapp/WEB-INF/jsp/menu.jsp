@@ -13,8 +13,8 @@
 <!-- 				Acionando o menu usuário, é acionada a rota "usuario/lista" presente na classe UsuarioController -->
 				<li><a href="/usuario/lista">Usuário</a></li>
 				<li><a href="/empresa/lista">Empresa</a></li>
-				<li><a href="#">Veículo</a></li>
-				<li><a href="#">Automóvel</a></li>
+				<li><a href="/veiculo/lista">Veículo</a></li>
+				<li><a href="/automovel/lista">Automóvel</a></li>
 				<li><a href="#">Caminhão</a></li>
 				<li><a href="#">Trator</a></li>
 				<li><a href="#">Frota</a></li>

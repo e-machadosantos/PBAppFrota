@@ -28,6 +28,10 @@ public class Usuario {
 	@OneToMany
 	@JoinColumn(name = "idUsuario")
 	private List<Empresa> empresas;
+	@OneToMany
+	@JoinColumn(name = "idUsuario")
+	private List<Veiculo> veiculos;
+
 	
 	public Usuario() {		
 	}
@@ -123,6 +127,15 @@ public class Usuario {
 
 	public void setEmpresas(List<Empresa> empresas) {
 		this.empresas = empresas;
+	}
+
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+
+	public void setVeiculos(List<Veiculo> veiculos) {
+		this.veiculos = veiculos;
 	}	
 
+	
 }

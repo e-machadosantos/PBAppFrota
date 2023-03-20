@@ -26,9 +26,9 @@ public class EmpresaController {
 	}
 	
 	@GetMapping(value = "/empresa/lista")
-	public String telaLista(Model model) {		
+	public String telaLista(Model model, @SessionAttribute("usuario") Usuario usuario) {		
 
-		model.addAttribute("empresas", empresaService.obterLista());
+		model.addAttribute("empresas", empresaService.obterLista(usuario));
 		
 		model.addAttribute("mensagem", msg);
 		

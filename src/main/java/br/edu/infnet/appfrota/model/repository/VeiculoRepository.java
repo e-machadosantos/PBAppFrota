@@ -6,11 +6,11 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import br.edu.infnet.appfrota.model.domain.Empresa;
+import br.edu.infnet.appfrota.model.domain.Veiculo;
 
 @Repository
-public interface EmpresaRepository extends CrudRepository<Empresa, Integer>{
+public interface VeiculoRepository extends CrudRepository<Veiculo, Integer>{
 	
-	@Query("from Empresa e where e.usuario.id = :userId")
-	List<Empresa> obterLista(Integer userId);
+	@Query("from Veiculo v where v.usuario.id = :userId")
+	List<Veiculo> obterLista(Integer userId);
 }

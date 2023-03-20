@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.edu.infnet.appfrota.model.domain.Empresa;
+import br.edu.infnet.appfrota.model.domain.Usuario;
 import br.edu.infnet.appfrota.model.repository.EmpresaRepository;
 
 @Service
@@ -24,5 +25,9 @@ public class EmpresaService {
 	
 	public Collection<Empresa> obterLista(){
 		return (Collection<Empresa>) empresaRepository.findAll();
+	}
+	
+	public Collection<Empresa> obterLista(Usuario usuario){
+		return empresaRepository.obterLista(usuario.getId());
 	}
 }

@@ -31,7 +31,7 @@ public class UsuarioLoader implements ApplicationRunner{
 		
 		for (int i = 0; i < 9; i++) {
 			Usuario usuario = new Usuario("Administrador" + i, "admin" + i + "@admin.com", "0" + i);
-			usuario.setId(i);
+//			usuario.setId(i);
 			usuario.setIdade(i*4);
 			usuario.setSalario(i*100);
 			usuario.setSetor("Presidência" + i);
